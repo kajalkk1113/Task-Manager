@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
-const TaskForm = () => {
+const TaskForm = ({data,setData}) => {
   const [task, setTask] = useState("");
-  const [data, setData] = useState([]);
   const [category, setCategory] = useState("Study");
   const [priority, setPriority] = useState("High");
 
@@ -10,9 +9,11 @@ const TaskForm = () => {
     if (task.trim() === "") return;
 
     const newTask = {
+      id:Date.now(),
       title: task,
       category,
       priority,
+      status:"Pending"
     };
 
     setData([newTask, ...data]);
@@ -22,10 +23,6 @@ const TaskForm = () => {
     setPriority("High");
   };
 
-  const deleteTask = (index) => {
-    const newData = data.filter((_, i) => i !== index);
-    setData(newData);
-  };
 
   return (
     <>
@@ -71,18 +68,6 @@ const TaskForm = () => {
           Create Task
         </button>
       </form>
-
-      {data.map((item, index) => (
-        <div key={index}>
-          <h2>{item.title}</h2>
-          <p>Category: {item.category}</p>
-          <p>Priority: {item.priority}</p>
-
-          <button onClick={() => deleteTask(index)}>
-            Delete
-          </button>
-        </div>
-      ))}
     </>
   );
 };

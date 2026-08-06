@@ -99,8 +99,8 @@ body{
 /* Card */
 
 .taskCard{
-    width: 360px;
-    min-height: 170px;
+    width: 460px;
+    /* min-height: 170px; */
     background: #34384b;
     border-radius: 18px;
     padding: 20px;
@@ -153,7 +153,8 @@ body{
 /* Status */
 
 .status{
-    background: #2d8cff;
+    background-color: rgb(251, 237, 157);
+    color: rgb(194, 194, 24);
 }
 
 form{
@@ -218,6 +219,26 @@ form button:hover{
     box-shadow:0 8px 20px rgba(106,92,255,.4);
 }
 
+.complete , 
+.delete{
+    background-color: rgb(142, 209, 135);
+    padding: 10px;
+    width: 180px;
+    color: green;
+    border-radius: 5px;
+    border: none;
+    margin: 5px 10px;
+}
+
+.delete{
+    background-color: rgb(210, 137, 137);
+    color: rgb(135, 40, 40);
+    cursor: pointer;
+}
+
+hr{
+    margin: 30px 10px;
+}
 /* Responsive */
 
 @media(max-width:768px){

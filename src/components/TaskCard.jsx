@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import tasksData from "../data/db";
+import React, { useContext, useState } from "react";
 
-const TaskCard = () => {
-  const [data, setData] = useState(tasksData);
-
-  const deleteTask = (index) => {
-    const newData = data.filter((_, i) => i !== index);
+const TaskCard = ({data,setData}) => {
+ const deleteTask = (id) => {
+    const newData = data.filter((task) => task.id !== id);
     setData(newData);
-  };
+};
 
   return (
     <div className="box">
@@ -20,8 +17,12 @@ const TaskCard = () => {
         </span>
       </h1>
 
-      {data.map((task, index) => (
-        <div key={task.id} className="taskCard">
+      {
+        data.length===0 ? 
+        <p style={{fontSize:'20px',fontWeight:'bolder'}}>No Tasks Available</p>
+        :
+        data.map((task, index) => (
+        <div key={task.id} className= "taskCard">
           <h3>
             {task.title}
             <span>
@@ -34,11 +35,17 @@ const TaskCard = () => {
             style={{
               backgroundColor:
                 task.priority === "Low"
-                  ? "blue"
+                  ? "#80ade5"
                   : task.priority === "Medium"
-                  ? "orange"
-                  : "red",
-              color: "white",
+                  ? "rgb(247, 198, 107)"
+                  : "rgb(210, 137, 137)",
+              color:
+              task.priority === "Low"
+                  ? "rgb(20, 20, 203)"
+                  : task.priority === "Medium"
+                  ? "rgb(170, 117, 18)"
+                  :"rgb(135, 40, 40)",
+                   
             }}
           >
             Priority: {task.priority}
@@ -47,14 +54,15 @@ const TaskCard = () => {
           <button className="status">
             Status: {task.status}
           </button>
+          <hr />
+          <button className="complete">Complete</button>
 
-          <button>Complete</button>
-
-          <button onClick={() => deleteTask(index)}>
+          <button className="delete" onClick={() => deleteTask(task.id)}>
             Delete
           </button>
         </div>
       ))}
+      
     </div>
   );
 };

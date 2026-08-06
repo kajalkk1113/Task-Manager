@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div> "Smart Daily Task Manager"</div>
+    <div style={{textAlign:'center', fontSize:'18px'}}> "Smart Daily Task Manager"</div>
   )
 }
 

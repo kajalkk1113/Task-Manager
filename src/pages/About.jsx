@@ -1,127 +1,78 @@
 import React from "react";
 
+const stack = [
+  {
+    title: "Core setup",
+    items: ["React", "Vite", "React Router DOM", "JSX"],
+  },
+  {
+    title: "Components",
+    items: ["Functional components", "Props", "Component reusability"],
+  },
+  {
+    title: "State and effects",
+    items: ["useState", "useEffect", "Event handling", "Controlled forms"],
+  },
+  {
+    title: "Rendering",
+    items: ["Conditional rendering", "Lists with map()"],
+  },
+];
+
 const About = () => {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(to right, #4facfe, #00f2fe)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "40px",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "800px",
-          width: "100%",
-          background: "#fff",
-          padding: "35px",
-          borderRadius: "20px",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-          textAlign: "center",
-        }}
-      >
-        <h1
-          style={{
-            color: "#2563eb",
-            marginBottom: "10px",
-            fontSize: "2.5rem",
-          }}
-        >
-          📚 Student Task Manager
-        </h1>
-
-        <h3
-          style={{
-            color: "#555",
-            marginBottom: "20px",
-          }}
-        >
-          Developed by Kajal
-        </h3>
-
-        <p
-          style={{
-            color: "#444",
-            lineHeight: "1.8",
-            fontSize: "17px",
-            textAlign: "justify",
-          }}
-        >
-          <strong>Student Task Manager</strong> is a React-based web application
-          that helps students organize and manage their daily tasks efficiently.
-          It provides a clean and user-friendly interface where students can add,
-          update, and track their work with ease.
+    <main className="pg">
+      <section className="pg-about-head">
+        <h1>SmartTask</h1>
+        <p className="pg-author">Developed by Kajal</p>
+        <p className="pg-lead">
+          A student task manager built with React. It helps students organise
+          their daily tasks. You can add, update and track your work from a
+          clean, responsive interface that works on both desktop and mobile.
         </p>
+      </section>
 
-        <div
-          style={{
-            marginTop: "25px",
-            padding: "20px",
-            background: "#f8fafc",
-            borderRadius: "12px",
-            textAlign: "left",
-          }}
-        >
-          <h2
-            style={{
-              color: "#2563eb",
-              marginBottom: "15px",
-            }}
-          >
-            🚀 Technologies & Concepts Used
-          </h2>
-
-          <ul
-            style={{
-              lineHeight: "2",
-              color: "#333",
-              fontSize: "16px",
-            }}
-          >
-            <li>⚛ React Project Setup using Vite</li>
-            <li>📝 JSX</li>
-            <li>🧩 Functional Components</li>
-            <li>♻ Component Reusability</li>
-            <li>📦 Props</li>
-            <li>🖱 Event Handling</li>
-            <li>🎯 useState Hook</li>
-            <li>🔄 useEffect Hook</li>
-            <li>👀 Conditional Rendering</li>
-            <li>📋 Rendering Lists using map()</li>
-            <li>📝 Controlled Forms</li>
-            <li>🛣 React Router DOM</li>
-          </ul>
+      <section>
+        <h2>Tech stack and concepts</h2>
+        <p className="pg-lead">
+          The project covers the core building blocks of a modern React app.
+        </p>
+        <div className="pg-stack-grid">
+          {stack.map((group) => (
+            <div className="pg-card pg-stack-group" key={group.title}>
+              <h3>{group.title}</h3>
+              <div className="pg-chips">
+                {group.items.map((item) => (
+                  <span className="pg-chip" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
+      </section>
 
-        <div
-          style={{
-            marginTop: "25px",
-            background: "#e0f2fe",
-            padding: "18px",
-            borderRadius: "12px",
-          }}
-        >
-          <h2 style={{ color: "#0c4a6e" }}>🎯 Project Purpose</h2>
-
-          <p
-            style={{
-              color: "#333",
-              lineHeight: "1.8",
-              fontSize: "16px",
-            }}
-          >
-            The main purpose of this project is to help students manage their
-            tasks effectively. Students can add tasks, organize them, monitor
-            their progress, and improve productivity through a simple and
-            responsive interface.
+      <section className="pg-split">
+        <div className="pg-card">
+          <h2>Project purpose</h2>
+          <p>
+            Students often juggle assignments, revision and deadlines at the
+            same time. This app gives them one simple place to add tasks,
+            organise them, monitor progress and stay productive.
           </p>
         </div>
-      </div>
-    </div>
+        <div className="pg-card">
+          <h2>What you can do</h2>
+          <ul className="pg-list">
+            <li>Add tasks with a category and priority</li>
+            <li>Mark tasks as completed</li>
+            <li>Delete tasks you no longer need</li>
+            <li>Use it comfortably on any screen size</li>
+          </ul>
+        </div>
+      </section>
+    </main>
   );
 };
 

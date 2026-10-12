@@ -13,7 +13,7 @@ const App = () => {
     <>
     <Navbar/>
     <Routes>
-      <Route path='//Task-Manager' element={<Home/>}/>
+      <Route path='/' element={<Home/>}/>
       <Route path='/tasks' element={<Tasks data={data} setData={setData}/>}/>
       <Route path='/about' element={<About/>}/>
     </Routes>
